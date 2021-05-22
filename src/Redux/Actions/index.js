@@ -22,3 +22,21 @@ export var getHeadLines = () => {
     }
   };
 };
+
+export var getCat = (cat) => {
+  return async (dis) => {
+    var output = await axios({
+      baseURL: "https://newsapi.org/v2/top-headlines/",
+      params: {
+        country: "in",
+        apiKey: "546122fcebed4d9d80e215e4bc11ea28",
+        category: cat,
+      },
+    });
+    try {
+      dis({ type: "CATEGORY", payload: output.data.articles });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+};

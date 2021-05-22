@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-let trialReducer = (iniState = 1, action) => {
+let categoryReducer = (iniState = [], action) => {
   switch (action.type) {
-    case "TRIAL": {
-      return iniState + action.payload;
+    case "CATEGORY": {
+      return action.payload;
     }
     default: {
       return iniState;
@@ -22,7 +22,7 @@ let headlineReducer = (iniState = [], action) => {
 };
 
 let allReducers = combineReducers({
-  trialReducer,
+  categoryReducer,
   headlineReducer,
 });
 

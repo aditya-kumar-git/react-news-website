@@ -1,4 +1,5 @@
 import FirstNewsBlock from "Components/FirstNewsBlock";
+import Loading from "Components/Loading";
 import NewsBlock from "Components/NewsBlock";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,10 +21,12 @@ export default function HomeScreen() {
             return <FirstNewsBlock data={news} key={"newsBlockKey-" + index} />
           }
         else
-        {return <NewsBlock data={news} key={"newsBlockKey-" + index} />}
+        {
+          return <NewsBlock data={news} key={"newsBlockKey-" + index} />
+        }
       });
     } else {
-      return <div>Loading</div>;
+      return <Loading/>;
     }
   };
 

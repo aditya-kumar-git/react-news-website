@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, ContainerCategory } from "./styles";
 
 export default function CategoryScreen() {
@@ -15,7 +16,14 @@ export default function CategoryScreen() {
   const listRender = () => {
     return catList.map((name, index) => {
       return (
-        <ContainerCategory key={"catKey-" + index}>{name}</ContainerCategory>
+        <Link
+          to={{
+            pathname: "/categorynews",
+            catName: name,
+          }}
+        >
+          <ContainerCategory key={"catKey-" + index}>{name}</ContainerCategory>
+        </Link>
       );
     });
   };

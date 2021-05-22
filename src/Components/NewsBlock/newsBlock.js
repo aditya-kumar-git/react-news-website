@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   NewsContainer,
   NewsImage,
@@ -11,27 +12,27 @@ import {
 } from "./styles";
 
 export default function NewsBlock(props) {
-  const {
-    author,
-    content,
-    description,
-    publishedAt,
-    source,
-    title,
-    urlToImage,
-    url,
-  } = props.data;
+  const { publishedAt, source, title, urlToImage } = props.data;
   return (
-    <NewsContainer>
-      <NewsImage style={{ backgroundImage: `url(${urlToImage})` }}></NewsImage>
-      <NewsData>
-        <NewsTitle>{title}</NewsTitle>
-        <SmallData>
-          <NewsDate>{publishedAt.slice(0,10)}</NewsDate>
-          <Divider>|</Divider>
-          <NewsSource>{source.name}</NewsSource>
-        </SmallData>
-      </NewsData>
-    </NewsContainer>
+    <Link
+      to={{
+        pathname: "/fullnews",
+        dataProps: props.data,
+      }}
+    >
+      <NewsContainer>
+        <NewsImage
+          style={{ backgroundImage: `url(${urlToImage})` }}
+        ></NewsImage>
+        <NewsData>
+          <NewsTitle>{title}</NewsTitle>
+          <SmallData>
+            <NewsDate>{publishedAt.slice(0, 10)}</NewsDate>
+            <Divider>|</Divider>
+            <NewsSource>{source.name}</NewsSource>
+          </SmallData>
+        </NewsData>
+      </NewsContainer>
+    </Link>
   );
 }
