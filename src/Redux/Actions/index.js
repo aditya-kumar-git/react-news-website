@@ -12,7 +12,7 @@ export var getHeadLines = () => {
       baseURL: "https://newsapi.org/v2/top-headlines/",
       params: {
         country: "in",
-        apiKey: "546122fcebed4d9d80e215e4bc11ea28",
+        apiKey: "",
       },
     });
     try {
@@ -29,7 +29,7 @@ export var getCat = (cat) => {
       baseURL: "https://newsapi.org/v2/top-headlines/",
       params: {
         country: "in",
-        apiKey: "546122fcebed4d9d80e215e4bc11ea28",
+        apiKey: "",
         category: cat,
       },
     });
